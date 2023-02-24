@@ -14,6 +14,7 @@ import org.bukkit.inventory.meta.LeatherArmorMeta;
 import org.bukkit.material.MaterialData;
 import org.bukkit.scheduler.BukkitTask;
 import org.bukkit.scoreboard.Score;
+import org.bukkit.util.Vector;
 
 import java.util.ArrayList;
 
@@ -108,6 +109,7 @@ public class GameManager {
         player.setHealth(20);
         player.setFoodLevel(20);
         player.setSaturation(20);
+        player.setVelocity(new Vector(0,0,0));
 
         if(p.getTeam() == PlayerState.BLUETEAM){
             player.teleport(blueCageLocation);

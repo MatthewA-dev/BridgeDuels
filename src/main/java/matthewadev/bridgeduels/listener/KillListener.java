@@ -12,6 +12,9 @@ import org.bukkit.event.entity.EntityDamageEvent;
 public class KillListener implements Listener {
     @EventHandler
     public void onAttack(EntityDamageEvent e){
+        if(e.getCause().equals(EntityDamageEvent.DamageCause.FALL)){
+            return;
+        }
         for (PlayerGame p: GameManager.allPlayers) {
             if(p.getPlayer().equals(e.getEntity())){
                 Player player = (Player) e.getEntity();

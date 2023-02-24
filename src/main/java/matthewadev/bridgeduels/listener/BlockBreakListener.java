@@ -6,12 +6,28 @@ import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.block.BlockBreakEvent;
 import org.bukkit.event.block.BlockPlaceEvent;
+import org.bukkit.event.entity.EntityExplodeEvent;
 
 import java.util.ArrayList;
 
 public class BlockBreakListener implements Listener {
     private ArrayList<Block> playerBlocks = new ArrayList<>();
     private ArrayList<BlockTuple> bridgeBlocksFinal = new ArrayList<>();
+    @EventHandler
+    public void onExplode(EntityExplodeEvent e){
+        for (int i = e.blockList().size() - 1; i >= 0; i--) {
+            Block b = e.blockList().get(i);
+            boolean cancel = true;
+            for (Block playerBlock : playerBlocks) {
+                if (b.equals(playerBlock)) {
+                    cancel = false;
+                }
+            }
+            if(cancel){
+                e.blockList().remove(b);
+            }
+        }
+    }
     @EventHandler
     public void onBreak(BlockBreakEvent e){
         e.setCancelled(true);
