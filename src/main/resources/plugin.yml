@@ -1,0 +1,16 @@
+name: BridgeDuels
+version: '${project.version}'
+main: matthewadev.bridgeduels.BridgeDuels
+api-version: 1.8.9
+description: Bridge Duels
+commands:
+  startgame:
+    description: starts
+  stopgame:
+    description: ends
+  setTeam:
+    description: set team for player
+  win:
+    description: win
+  winround:
+    description: win the round
