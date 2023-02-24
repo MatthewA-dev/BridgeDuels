@@ -13,8 +13,6 @@ public final class BridgeDuels extends JavaPlugin {
     @Override
     public void onEnable() {
         self = this;
-        Location l = GameManager.lobbyLocation;
-        Bukkit.getWorld("world").setSpawnLocation(l.getBlockX(),l.getBlockY(),l.getBlockZ());
         b.registerBlocks();
         getServer().getPluginManager().registerEvents(b, self);
         getServer().getPluginManager().registerEvents(new JoinListener(), self);
@@ -25,7 +23,6 @@ public final class BridgeDuels extends JavaPlugin {
         getServer().getPluginManager().registerEvents(new GoalEnterListener(), self);
         getServer().getPluginManager().registerEvents(new ArrowFireListener(), self);
         getCommand("startgame").setExecutor(new StartCommand());
-        getCommand("stopgame").setExecutor(new StopCommand());
         getCommand("setTeam").setExecutor(new SetTeamCommand());
         getCommand("win").setExecutor(new WinCommand());
         getCommand("winround").setExecutor(new WinRoundCommand());

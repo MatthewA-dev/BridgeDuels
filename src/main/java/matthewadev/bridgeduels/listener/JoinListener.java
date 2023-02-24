@@ -13,6 +13,7 @@ public class JoinListener implements Listener {
         PlayerGame p = new PlayerGame();
         p.setPlayer(e.getPlayer());
         p.setTeam(PlayerState.SPECTATOR);
+        p.getPlayer().teleport(GameManager.lobbyLocation);
         GameManager.addPlayer(p);
     }
 }
